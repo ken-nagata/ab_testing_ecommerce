@@ -61,7 +61,7 @@ using rigorous statistical methods.
 
 ## Project Structure
 
-\```
+```
 ab_testing/
 ├── data/
 │   ├── raw/          # original dataset (not tracked)
@@ -70,15 +70,19 @@ ab_testing/
 │   └── 01_eda.ipynb  # full analysis
 ├── src/              # reusable modules (coming soon)
 ├── tests/
+├── .gitignore
+├── poetry.lock
 ├── pyproject.toml
 └── README.md
-\```
+```
 
 ---
 
 ## Setup
 
-\```bash
+Requires Python >= 3.11 and [Poetry](https://python-poetry.org/).
+
+```bash
 poetry install
 poetry run jupyter notebook
-\```
+```
