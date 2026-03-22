@@ -61,6 +61,9 @@ using rigorous statistical methods.
 ## Project Structure
 ```
 ab_testing/
+├── assets/
+│   ├── conversion_rate.png
+│   └── z_test.png
 ├── data/
 │   ├── raw/          # original dataset (not tracked)
 │   └── processed/    # cleaned data (not tracked)
@@ -72,6 +75,10 @@ ab_testing/
 │   ├── power.py      # power analysis and sample size calculation
 │   └── logistic.py   # logistic regression and odds ratio
 ├── tests/
+│   ├── test_ztest.py
+│   ├── test_power.py
+│   └── test_logistic.py
+├── conftest.py       # pytest path configuration
 ├── .gitignore
 ├── poetry.lock
 ├── pyproject.toml
