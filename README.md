@@ -51,6 +51,9 @@ using rigorous statistical methods.
 - Had the new page achieved a 1pp lift, it would have generated an additional 
   $1,740,000/year
 
+![Conversion Rate by Group](assets/conversion_rate.png)
+![Z-test Result](assets/ztest_plot.png)
+
 **Recommendation:** Do not ship the new page. Redesign and retest.
 
 ---
