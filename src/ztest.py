@@ -38,7 +38,7 @@ def run_ztest(df, group_col, treatment_val, control_val, outcome_col, alpha=0.05
     se = np.sqrt(p_pool * (1 - p_pool) * (1 / n_control + 1 / n_treatment))
 
     z_score = (p_treatment - p_control) / se
-    p_value = stats.norm.cdf(z_score)
+    p_value = 1 - stats.norm.cdf(z_score)
 
     z_crit = stats.norm.ppf(1 - alpha)
     ci_lower = (p_treatment - p_control) - z_crit * se 
