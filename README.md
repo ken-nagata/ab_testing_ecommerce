@@ -1,5 +1,4 @@
 # E-commerce A/B Testing
-
 A end-to-end A/B testing project analysing whether a new e-commerce landing page 
 drives a statistically significant lift in conversion rate.
 
@@ -8,7 +7,6 @@ Dataset: [Kaggle - E-commerce A/B Testing](https://www.kaggle.com/datasets/ahmed
 ---
 
 ## Objective
-
 Test whether a redesigned landing page improves conversion rate over the existing page
 using rigorous statistical methods.
 
@@ -18,7 +16,6 @@ using rigorous statistical methods.
 ---
 
 ## Dataset
-
 - 294,478 user sessions
 - Columns: user ID, group (control/treatment), page seen, conversion (0/1)
 - After cleaning: 290,583 rows (removed mismatched group/page assignments and duplicates)
@@ -26,7 +23,6 @@ using rigorous statistical methods.
 ---
 
 ## Methods
-
 - **Exploratory Data Analysis** — data quality checks, conversion rates by group
 - **Z-test for proportions** — one-tailed hypothesis test at α = 0.05
 - **Power analysis** — minimum detectable effect, required sample size, actual power
@@ -60,7 +56,6 @@ using rigorous statistical methods.
 ---
 
 ## Project Structure
-
 ```
 ab_testing/
 ├── data/
@@ -68,12 +63,32 @@ ab_testing/
 │   └── processed/    # cleaned data (not tracked)
 ├── notebooks/
 │   └── 01_eda.ipynb  # full analysis
-├── src/              # reusable modules (coming soon)
+├── src/
+│   ├── __init__.py
+│   ├── ztest.py      # z-test for proportions
+│   ├── power.py      # power analysis and sample size calculation
+│   └── logistic.py   # logistic regression and odds ratio
 ├── tests/
 ├── .gitignore
 ├── poetry.lock
 ├── pyproject.toml
 └── README.md
+```
+
+---
+
+## Reusable Modules
+
+The `src/` directory contains modular, importable functions for each statistical method:
+
+```python
+from src.ztest import run_ztest
+from src.power import run_power_analysis
+from src.logistic import run_logistic_regression
+
+ztest_results = run_ztest(df, 'con_treat', 'treatment', 'control', 'converted')
+power_results = run_power_analysis(p_baseline=0.1204, mde=0.01, n_actual=145274)
+logistic_results = run_logistic_regression(df, 'is_treatment', 'converted')
 ```
 
 ---
